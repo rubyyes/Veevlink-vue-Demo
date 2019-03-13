@@ -1,0 +1,181 @@
+/**
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, input {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-weight: normal;
+  vertical-align: baseline;
+   user-select: text !important;
+}
+/*苹果框 bug*/
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+*:not(input,textarea) {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+*{
+  cursor:pointer;
+}
+b{
+  font-weight: 500;
+}
+
+.ql-indent-1{
+  text-indent:0.56rem
+}
+#app{
+  height: 100%;
+}
+h1{font-size: 0.4rem}
+h2{font-size: 0.36rem}
+h3{font-size: 0.32rem}
+h4,p,div{font-size: 0.28rem}
+h5{font-size: 0.24rem}
+h6{font-size: 0.2rem}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+  background-color: #f5f5f5;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/*苹果框 bug*/
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+
+  user-select:text !important;
+
+}
+*:not(input,textarea) {
+  -webkit-touch-callout: none;
+  /*-webkit-user-select: none;*/
+}
+/* custom */
+a {
+  color: #7e8c8d;
+  text-decoration: none;
+  -webkit-backface-visibility: hidden;
+}
+
+li {
+  list-style: none;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  height: 5px;
+  background-color: rgba(125, 125, 125, 0.7);
+  -webkit-border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  width: 5px;
+  background-color: rgba(125, 125, 125, 0.7);
+  -webkit-border-radius: 6px;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.footer{
+  width: 100%;
+}
+body,html{
+  line-height: 1;
+  font-weight: 200;
+  font-family: 'PingFang SC','STHeiti','HelveticaNeue-Light',Arial;
+  /*苹果滑动*/
+  -webkit-overflow-scrolling: touch;
+}
+
+.background{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.content-html img{
+  max-width: 100%;
+}
+.content-html ul li{
+  list-style: disc;
+  list-style-position:inside !important;
+}
+.content-html h4{
+  font-weight: 500;
+  color: #444;
+  padding-bottom: 0.2rem;
+}
+ol li{
+
+  list-style-type:decimal !important;
+
+  list-style-position:inside !important;
+}
+@media screen and (min-width: 500px) {
+  #app {
+    box-shadow: 0 0 0.1rem #ccc;
+  }
+}
