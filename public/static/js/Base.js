@@ -16,15 +16,15 @@ export function base() {
    3. 每个页面通用逻辑：首先查看地址是否传入Code，如果有Code则识别用身份并存储，
    否则从SessionStroage获取用户身份，如果SessionStroage也没有用户身份则显示“未识别的用户”
    */
-  var domain = veevlinkBase.domain;
-  var veevlinkStorage = window.sessionStorage;//Veevlink本地存储
-  var veevlinkSession = window.sessionStorage;//VeevlinkSession存储
-  var sessionKey = "Veevlink_Actived_AppId";//Session存储的Key
-  var activedAgentIdSessionKey = "Veevlink_Actived_AgentId"; //Session存储的活动的Actived AgentId
-  var keyPrefix = "Veevlink_";//SessionKey前缀
-  var errorKey = "Veevlink_Error";//错误消息Key
-  var localKey = "";//local存储的key
-  var urlKeyValueObj = getKeyValue(window.location.href);//当前页面url上的参数对象
+  window.domain = veevlinkBase.domain;
+  window.veevlinkStorage = window.sessionStorage;//Veevlink本地存储
+  window.veevlinkSession = window.sessionStorage;//VeevlinkSession存储
+  window.sessionKey = "Veevlink_Actived_AppId";//Session存储的Key
+  window.activedAgentIdSessionKey = "Veevlink_Actived_AgentId"; //Session存储的活动的Actived AgentId
+  window.keyPrefix = "Veevlink_";//SessionKey前缀
+  window.errorKey = "Veevlink_Error";//错误消息Key
+  window.localKey = "";//local存储的key
+  window.urlKeyValueObj = getKeyValue(window.location.href);//当前页面url上的参数对象
 // function getQueryString(str) {
 //   var reg = new RegExp('(^|&)' + str + '=([^&]*)(&|$)', 'i');
 //   var result = window.location.search.substr(1).match(reg);
@@ -65,7 +65,8 @@ export function base() {
   }
   // 如果url含 noWeChat 则调用非微信的方法
   if(getQueryString('noWeChat')){
-    /*封装获取Context的方法，供外部调用，
+    /*
+     封装获取Context的方法，供外部调用，
      判断是否有Code，如果有Code需要调用Base.js获取，
      如果没有判断Cookie是否存在，如果存在返回Cookie中的值，
      如果没有就代表Code也没有，没有做微信OAuth2.0认证，Cookie也丢失，所以无法识别当前用户身份提示错误页面
@@ -252,7 +253,7 @@ export function base() {
     function SetCallBackError(error) {
       veevlinkSession.setItem(errorKey, error.responseText + " " + error.status + " " + error.statusText)
     }
-   //Base.js加载完成主动调用GetContext()方法
+    //Base.js加载完成主动调用GetContext()方法
     GetContext();
   }else{
     /*封装获取Context的方法，供外部调用，
@@ -521,7 +522,7 @@ export function base() {
       });
     }
 //封装设置Context的方法
-    function SetContext(context) {
+    window.SetContext = function SetContext(context) {
       var contextStr = JSON.stringify(context);
       var AppId = veevlinkSession.getItem(sessionKey);
       var AgentId = veevlinkSession.getItem(activedAgentIdSessionKey);
