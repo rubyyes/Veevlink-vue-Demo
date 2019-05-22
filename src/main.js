@@ -2,6 +2,7 @@ import Vue from 'vue'
 import router from './router'
 import VueWechatTitle from 'vue-wechat-title'
 import {base} from "../public/static/js/Base"
+import {SFDCApi} from "../public/static/js/SFDCApi"
 import veevlinkBase from  "../veevlinkBase"
 import config from './utils/config'//引用公共方法文件
 Vue.prototype.config = config; //挂载到Vue实例上面
@@ -20,6 +21,7 @@ window.context = {
   WEQYUserId: ""
 };
 base();
+SFDCApi();
 console.log(veevlinkBase);
 // 有ApiVersion代表在公众号环境了
 if(context.ApiVersion ){

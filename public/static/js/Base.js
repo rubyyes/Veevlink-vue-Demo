@@ -92,7 +92,7 @@ export function base() {
       }
       //如果不存在，说明从菜单点击过来，直接进中间件拿数据
       else {
-        var BaseContextUrl = domain + "/BaseContext.aspx";
+        var BaseContextUrl = domain + "/BaseContextV2.aspx";
         //发送ajax请求到获取Context地址，带上appid，userid参数
         ajax({
           url: BaseContextUrl,
@@ -131,7 +131,7 @@ export function base() {
         //动态获取当前url中的protocol和host，
         //var url = window.location.protocol + "//" + window.location.host;
         //拼接获取Context的url
-        var BaseContextUrl = domain + "/BaseContext.aspx";
+        var BaseContextUrl = domain + "/BaseContextV2.aspx";
         //发送ajax请求到获取Context地址，带上appid，userid参数
         ajax({
           url: BaseContextUrl,
@@ -253,7 +253,7 @@ export function base() {
     function SetCallBackError(error) {
       veevlinkSession.setItem(errorKey, error.responseText + " " + error.status + " " + error.statusText)
     }
-    //Base.js加载完成主动调用GetContext()方法
+   //Base.js加载完成主动调用GetContext()方法
     GetContext();
   }else{
     /*封装获取Context的方法，供外部调用，
@@ -371,7 +371,7 @@ export function base() {
           //动态获取当前url中的protocol和host，
           //var url = window.location.protocol + "//" + window.location.host;
           //拼接进行身份认证服务的url
-          var BaseUrl = domain + "/Base.aspx";
+          var BaseUrl = domain + "/BaseV2.aspx";
           //发送ajax请求到身份认证地址，带上code，appid，state参数
           ajax({
             url: BaseUrl,
@@ -419,7 +419,7 @@ export function base() {
       //动态获取当前url中的protocol和host，
       //var url = window.location.protocol + "//" + window.location.host;
       //拼接获取Context的url
-      var BaseContextUrl = domain + "/BaseContext.aspx";
+      var BaseContextUrl = domain + "/BaseContextV2.aspx";
       //发送ajax请求到获取Context地址，带上appid，userid参数
       ajax({
         url: BaseContextUrl,
@@ -454,7 +454,7 @@ export function base() {
         //动态获取当前url中的protocol和host，
         //var url = window.location.protocol + "//" + window.location.host;
         //拼接获取Context的url
-        var BaseContextUrl = domain + "/BaseContext.aspx";
+        var BaseContextUrl = domain + "/BaseContextV2.aspx";
         //发送ajax请求到获取Context地址，带上appid，userid参数
         ajax({
           url: BaseContextUrl,
@@ -522,7 +522,7 @@ export function base() {
       });
     }
 //封装设置Context的方法
-    window.SetContext = function SetContext(context) {
+   window.SetContext = function SetContext(context) {
       var contextStr = JSON.stringify(context);
       var AppId = veevlinkSession.getItem(sessionKey);
       var AgentId = veevlinkSession.getItem(activedAgentIdSessionKey);
@@ -580,7 +580,7 @@ export function base() {
       return arr.join("&");
     }
 // 错误收集api
-    function reportError(error, success) {
+    window.reportError =function reportError(error, success) {
       var errData = {
         Url: window.location.href,
         CreateAt: new Date().toLocaleString(),

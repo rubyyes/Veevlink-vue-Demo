@@ -28,9 +28,7 @@ let server = async function judge(url,type,result,isLogin) {
                 ErrorMessage : data.message, // 后台报错信息
               };
               // 发送错误日志
-              client.apexrest("/mp/account/exceptionLog?OpenId="+context.OpenId, (data)=> {
-              }, (error) =>{
-              }, 'POST' ,result2 ,null , true);
+              reportError(result2)
             }
           }
         }
@@ -59,9 +57,7 @@ let server = async function judge(url,type,result,isLogin) {
           ErrorMessage : JSON.stringify(data), // 后台报错信息
         };
         // 发送错误日志
-        client.apexrest("/mp/account/exceptionLog?OpenId="+context.OpenId, (data)=> {
-        }, (error) =>{
-        }, 'POST' ,result2 ,null , true);
+        reportError(result2)
       }
     },  type ,result?result:null,null , true);
      return serverData
