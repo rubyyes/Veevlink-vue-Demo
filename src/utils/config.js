@@ -6,7 +6,7 @@
 // let veevlinkBase = {
 //   domain : "https://test.veevlink.com"
 // }
-let server =  function judge(url,type,result,isLogin,success,err) {
+let server =  function judge(url,type,result,success,err,isLogin) {
     vm.loading = true;
     client.apexrest(url, (data)=> {
       vm.loading = false;

@@ -35,13 +35,14 @@
       url : 接口地址 (从 /services 后面计算)
       type : GET/POST
       data : POST的参数，GET直接设为 ""
-      isLogin : 是否判断isLogin参数，可选
+      success : 成功回调
+      error ： 失败回调
+      isLogin : 是否判断isLogin参数， 直接设置为null或者不填
       * */
       getInfo(){
         this.config.server(
           "/nw/mp/account/getInfo?OpenId="+context.OpenId,
           "GET",
-          null,
           null,
           (success)=> {
             console.log('success',success);
