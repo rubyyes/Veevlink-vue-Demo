@@ -6,13 +6,13 @@
 // let veevlinkBase = {
 //   domain : "https://test.veevlink.com"
 // }
-let server = async function judge(url,type,result,isLogin) {
+let server =  function judge(url,type,result,isLogin,success,err) {
     vm.loading = true;
-    let serverData = await  client.apexrest(url, (data)=> {
+    client.apexrest(url, (data)=> {
       vm.loading = false;
       if(data.isLogin || isLogin){
         if(data.success){
-          Promise.resolve(data);
+          success(data);
         }else{
           vm.hintbox = data.message;
           // 报错 上传服务器
@@ -42,10 +42,9 @@ let server = async function judge(url,type,result,isLogin) {
         }
       }
     }, (error) =>{
-
       vm.loading = false;
       vm.hintbox = "网络有点问题,请稍后重试!";
-      Promise.reject(error);
+      err(error);
       if(veevlinkBase.domain !== "https://test.veevlink.com"){
         // 报错 上传服务器
         let result2 = {
@@ -60,7 +59,6 @@ let server = async function judge(url,type,result,isLogin) {
         reportError(result2)
       }
     },  type ,result?result:null,null , true);
-     return serverData
 };
 
 /*html标签截取 图片地址*/

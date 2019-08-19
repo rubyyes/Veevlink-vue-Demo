@@ -40,14 +40,20 @@
       getInfo(){
         this.config.server(
           "/nw/mp/account/getInfo?OpenId="+context.OpenId,
-          "GET"
+          "GET",
+          null,
+          null,
+          (success)=> {
+            console.log('success',success);
+          },
+          (error)=> {
+            console.log('error',error);
+          },
         )
-        .then( (data) =>{
-          console.log(data);
-        });
       }
     },
     created(){
+     // this.getInfo()
     }
   }
 </script>

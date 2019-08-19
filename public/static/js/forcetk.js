@@ -177,7 +177,7 @@ if (forcetk.Client === undefined) {
    * @param [paramMap={}] parameters to send as header values for POST/PATCH etc
    * @param [retry] specifies whether to retry on error
    */
-  forcetk.Client.prototype.apexrest = function (path, callback, error, method, payload, paramMap, retry) {
+  forcetk.Client.prototype.apexrest =  function (path, callback, error, method, payload, paramMap, retry) {
     'use strict';
     var that = this,
       url = this.instanceUrl + '/services/apexrest' + path;
